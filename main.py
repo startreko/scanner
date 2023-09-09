@@ -336,9 +336,6 @@ from database import Database
         self.old_pos = event.globalPosition()
 
 
-
-
-
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     main_window = MainWindow()
