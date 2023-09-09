@@ -1,3 +1,5 @@
+![icon](https://github.com/startreko/scanner/assets/100490385/1c46e7a3-7651-470d-bf3b-641066545629)
+
 # Description:
 
 This project is a modularized tool that aids in managing telnet connections, reading XML data, configuring application parameters, and storing data into SQLite databases. With the use of Qt framework and Python libraries, the application is efficient, responsive, and user-friendly.
