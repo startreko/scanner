@@ -2,23 +2,20 @@ import configparser
 import os
 
 class ConfigManager:
-    DEFAULT_CONFIG = {
-        'CONFIG': {
-            'xml_path': '\\your-server-name\\YourApp\\Default_XML_Path',
-            'server_ip': 'localhost',
-            'server_port': '3000',
-            'db_path': '\\your-server-ip\\DefaultDB',
-            'cutter': 'DefaultCutter'
-        }
-    }
-
     def __init__(self, filename):
         self.filename = filename
         self.config = configparser.ConfigParser()
 
     def load_config(self):
         if not os.path.exists(self.filename):
-            self.config.read_dict(self.DEFAULT_CONFIG)
+            self.config['CONFIG'] = {
+                'xml_path': 'PLACEHOLDER_PATH',
+                'server_ip': 'PLACEHOLDER_IP',
+                'server_port': 'PLACEHOLDER_PORT',
+                'db_path': 'PLACEHOLDER_PATH',
+                'cutter_name': 'PLACEHOLDER_CUTTER_NAME',
+                'clean_mode': 'n'
+            }
             self.save_config()
         self.config.read(self.filename)
 
@@ -26,8 +23,5 @@ class ConfigManager:
         with open(self.filename, 'w') as configfile:
             self.config.write(configfile)
 
-    def get_config(self, section, key, default=None):
-        try:
-            return self.config[section][key]
-        except KeyError:
-            return default
+    def get_config(self, section, key):
+        return self.config[section][key]
