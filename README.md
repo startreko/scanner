@@ -1,19 +1,24 @@
 ![icon](https://github.com/startreko/scanner/assets/100490385/1c46e7a3-7651-470d-bf3b-641066545629)
 
-# Description:
+# Barcode Management System
 
-This project is a modularized tool that aids in managing telnet connections, reading XML data, configuring application parameters, and storing data into SQLite databases. With the use of Qt framework and Python libraries, the application is efficient, responsive, and user-friendly.
+## Description:
+
+A tool developed with the Qt framework and Python libraries, designed to aid production processes.
 
 ## Features:
 
-### Telnet Connector
-Establishes a telnet connection to a server, sends and receives data, and emits signals to notify of the connection status and incoming data.
+### Telnet Integration:
+- Manages telnet connections to servers.
+- Handles data transmission and provides feedback on connection status.
 
-### Config Manager
-Loads and saves application configurations, providing a default configuration if none exists.
+### Configuration Management:
+- Loads and saves application configurations.
 
-### XML Scanner
-Parses XML files from a specified directory, extracts relevant data based on certain attributes, and returns these values to the caller.
+### XML Data Processing:
+- Parses XML files from given directories.
+- Extracts specific attributes and returns processed values.
 
-### Database Manager
-Handles operations with SQLite databases such as creating or updating tables, inserting new data, checking if certain entries exist, and removing old data.
+### SQLite Database Management:
+- Manages SQLite database operations.
+- Supports table creation, data insertion, and data verification.
