@@ -10,29 +10,29 @@ class XMLScanner:
         if os.path.isfile(filename):
             tree = ET.parse(filename)
             root = tree.getroot()
-            order_length, order_fabric, order_property = self.get_xml_values(root)
+            order_length, order_fabric, order_uv = self.get_xml_values(root)
         else:
             order_length = "?"
             order_fabric = "?"
-            order_property = ""
+            order_uv = ""
 
-        return order_length, order_fabric, order_property
+        return order_length, order_fabric, order_uv
 
     def get_xml_values(self, root):
         order_length = "?"
         order_fabric = "?"
-        order_property = ""
+        order_uv = ""
 
         for elem in root.iter():
-            if "lineType" in elem.attrib and elem.attrib["lineType"] == "SpecialLine":
-                order_property = "SpecialProperty"
+            if "lineType" in elem.attrib and elem.attrib["lineType"] == "PlotLine":
+                order_uv = "UV"
                 break
 
         for elem in root.iter():
-            if "achievedValue" in elem.attrib:
-                order_length = "{:.2f}".format(float(elem.attrib["achievedValue"]) / 100)
+            if "achievedLength" in elem.attrib:
+                order_length = "{:.2f}".format(float(elem.attrib["achievedLength"]) / 100)
                 order_length += "m"
             if "description" in elem.attrib:
                 order_fabric = elem.attrib["description"]
 
-        return order_length, order_fabric, order_property
+        return order_length, order_fabric, order_uv
